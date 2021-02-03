@@ -4,6 +4,8 @@ from random import sample, choice
 import numpy as np
 import csv
 import os
+morning=[]
+afternoon=[]
 morning_p=[]
 afternoon_p=[]
 ac=[]
@@ -15,15 +17,22 @@ if os.path.isfile(checkname):
         #save the data in the ac
         for row in rows:
             ac.append(row)
-        morning_p=ac[0]
-        afternoon_p=ac[1]
+        member=ac[0]
+        morning=ac[1]
+        afternoon=ac[2]
 #class man(self,num1,num2,no1,no2):
 #morning_p=["Mary","Rose","Carl","Alice"]
 #afternoon_p=["Andy","Paul","Carl","Alice"]
 week=["Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday"]
+for i in range(1,len(member)):
+    if (int(morning[i])==1):
+        morning_p.append(member[i])
+    if (int(afternoon[i])==1):
+        afternoon_p.append(member[i])
+
 #Preprocess the input data
-del morning_p[0]
-del afternoon_p[0]
+#del morning_p[0]
+#del afternoon_p[0]
 for j in range(100):
     day_num=len(week)
     morning=[choice(morning_p) for i in range(0,day_num)]
