@@ -6,7 +6,15 @@ By setting the conditions needed in the score part,
 we can get the schedule with the highest score for usage. 
 
 How to use the code: 
-1. Modify the member list in the w_schedule_in.csv 
+1. Modify the work duty in the w_schedule_in.csv 
+   
+   Example:
+   ------------ Carl   Mary   Tim     Amy
+   Morning       1      1      0       0 ---> duty off
+   Afternoon     0      0      1       1 ---> duty on 
+                 17            25---> Friday Afternoon leave
+                 |             
+                 Sunday morning leave
 2. Entering the command: python3 schedule_gen.py
 3. Check the output in w_schedule_out.csv
 
