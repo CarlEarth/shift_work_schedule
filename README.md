@@ -9,7 +9,7 @@ How to use the code:
 1. Modify the work duty in the w_schedule_in.csv 
    
    Example:
-   ------------ Carl   Mary   Tim     Amy
+   ------------ Carl   Mary   Tim     Amy  
    Morning       1      1      0       0 ---> duty off  
    Afternoon     0      0      1       1 ---> duty on   
                  17            25---> Friday Afternoon leave  
