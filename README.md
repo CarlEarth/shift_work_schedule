@@ -10,13 +10,13 @@ How to use the code:
    
    Example:
    ------------ Carl   Mary   Tim     Amy
-   Morning       1      1      0       0 ---> duty off
-   Afternoon     0      0      1       1 ---> duty on 
-                 17            25---> Friday Afternoon leave
-                 |             
-                 Sunday morning leave
-2. Entering the command: python3 schedule_gen.py
-3. Check the output in w_schedule_out.csv
+   Morning       1      1      0       0 ---> duty off  
+   Afternoon     0      0      1       1 ---> duty on   
+                 17            25---> Friday Afternoon leave  
+                 |             |  
+                 Sunday morning leave  
+2. Entering the command: python3 schedule_gen.py  
+3. Check the output in w_schedule_out.csv  
 
 Future works:  
 Make more complicated score rules for practical usage.
