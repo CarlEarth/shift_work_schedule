@@ -16,6 +16,8 @@ import os
 import sys
 #-----------------
 max_loop=100
+max_worktimes=3
+sameday_arrange= 0
 #-----------------
 morning=[]
 afternoon=[]
@@ -66,19 +68,22 @@ for j in range(max_loop):
     combine=[week,morning,afternoon]
     #score the result
     score=100
-    #Person can not shift work whole day
-    for i in range(day_num):
-        if (morning[i]==afternoon[i]):
-            score = score -2
-    #the person can not work over 4 times (include 4) in a week
+    
+    #Person can not shift work whole day#######
+    if (sameday_arrange==0):
+        for i in range(day_num):
+            if (morning[i]==afternoon[i]):
+                score = score -2
+            
+    #the person can not shift work over max_worktimes in a week#
     new_list=morning+afternoon
     #collect how many times people shift work
     c=Counter(new_list).most_common()
     for i in range(len(c)):
-        if(c[i][1]>3):
+        if(c[i][1]>max_worktimes):
             score = score -2
 
-    #Consider taking a leave
+    #Consider taking a leave####################
     for info in leave1:
         if (combine[info[0]][info[1]-1]==member[info[2]]):
             #combine[class][weekday-1 to be the list position]
@@ -100,6 +105,10 @@ if (score!=100):
     morning=morning_h
     afternoon=afternoon_h
     print("Highest score = ",score_max)
+#Give the information to the output
+week.insert(0, 'Weekday')
+morning.insert(0, 'Morning')
+afternoon.insert(0, 'Afternoon')
 with open('w_schedule_out.csv','w', newline='') as csvfile1:
     writer=csv.writer(csvfile1)
     writer.writerow(week)
